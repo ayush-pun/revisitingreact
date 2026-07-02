@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
   return (
@@ -12,14 +13,16 @@ const Navbar = () => {
     {/* Links */}
     <ul className="hidden items-center gap-8 text-sm font-medium text-gray-300 md:flex">
       <li>
-        <a href="/" className="transition hover:text-white">
+        <Link to="/"
+        className="transition hover:text-white">
           Home
-        </a>
+        </Link>
       </li>
       <li>
-        <a href="/" className="transition hover:text-white">
+        <Link to="/products" 
+        className="transition hover:text-white">
           Products
-        </a>
+        </Link>
       </li>
     
       

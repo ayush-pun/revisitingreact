@@ -4,44 +4,86 @@ import products from "../dataset/Product";
 import Search from "../component/Search";
 import Filter from "../component/Filter";
 import Sort from "../component/Sorting";
+import { useSearchParams } from "react-router-dom";
 
 const Product = () => {
-    const [search, setSearch] = useState("");
-    const [Category, setCategory] = useState("All");
-    const [sort ,setSort] = useState("");
+
+
+
+    const [searchParams, setSearchParams] = useSearchParams();
+
+    const category = searchParams.get("category") || "All";
+    const search = searchParams.get("search") || "";
+    const sort = searchParams.get("sort") || "default";
 
     let filteredItems = [...products];
 
 
-    if (Category !== "All") {
-        filteredItems = filteredItems.filter(
-            (item) => item.category === Category
-        );
+
+    function handleSort(value) {
+        setSearchParams((prev) => {
+            const params = new URLSearchParams(prev);
+
+            if (value === "default") {
+                params.delete("sort");
+            } else {
+                params.set("sort", value);
+            }
+            return params;
+        })
     }
 
-    
-    if (search !== "") {
+    if (sort === "lowToHigh") {
+        filteredItems.sort((a, b) => a.price - b.price);
+    }
+
+    if (sort === "highToLow") {
+        filteredItems.sort((a, b) => b.price - a.price);
+    }
+
+
+
+    function handleSearch(value) {
+        setSearchParams((prev) => {
+            const params = new URLSearchParams(prev);
+
+            if (value) {
+                params.set("search", value);
+            } else {
+                params.delete("search");
+            }
+
+            return params;
+        });
+    }
+
+    if (search) {
         filteredItems = filteredItems.filter((item) =>
             item.title.toLowerCase().includes(search.toLowerCase())
         );
     }
 
-    if(sort === "lowToHigh"){
-        filteredItems.sort((a,b)=>a.price - b.price);
-    }
 
-    if(sort === "highToLow"){
-        filteredItems.sort((a,b)=>b.price - a.price);
-    }
 
     function handleFilter(value) {
-        setCategory(value);
+        setSearchParams((prev) => {
+            const params = new URLSearchParams(prev);
+
+            if (value === "All") {
+                params.delete("category");
+            } else {
+                params.set("category", value);
+            }
+
+            return params;
+        });
     }
 
-    function handleSort(value){
-        
-        setSort(value);
-        console.log("the value inside ",sort)
+
+    if (category !== "All") {
+        filteredItems = filteredItems.filter(
+            (item) => item.category === category
+        );
     }
 
 
@@ -68,13 +110,16 @@ const Product = () => {
 
                 <div className="mb-12 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
                     <div>
-                        <Search search={search} setSearch={setSearch}/>
+                        <Search search={search} handleSearch={handleSearch} />
                     </div>
                     <div>
                         <Filter handleFilter={handleFilter} />
                     </div>
                     <div>
-                        <Sort handleSort={handleSort}/>
+                        <Sort
+                            sort={sort}
+                            handleSort={handleSort}
+                        />
                     </div>
 
                 </div>

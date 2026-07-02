@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -33,9 +34,12 @@ const Home = () => {
 
         {/* Buttons */}
         <div className="mt-12 flex flex-wrap items-center justify-center gap-5">
-          <button className="rounded-full bg-white px-8 py-3 font-semibold text-black transition-all duration-300 hover:scale-105 hover:bg-gray-200">
-            Explore Now
+          <Link to="/products?category=Beach">
+          <button 
+          className="rounded-full bg-white px-8 py-3 font-semibold text-black transition-all duration-300 hover:scale-105 hover:bg-gray-200">
+            Explore Beaches of world!!
           </button>
+          </Link>
 
           <button className="rounded-full border border-white/15 bg-white/5 px-8 py-3 font-semibold text-white backdrop-blur-lg transition-all duration-300 hover:border-white/30 hover:bg-white/10">
             Learn More

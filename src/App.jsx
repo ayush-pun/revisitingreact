@@ -3,14 +3,21 @@ import Navbar from './component/Navbar'
 import Home from './pages/Home'
 import Product from './pages/Productpage'
 import Sort from './component/Sorting'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const App = () => {
   return (
-    <div>
+    
+      <BrowserRouter>
       <Navbar/>
-      <Product/>
+      <Routes>
+      
+      <Route path="/" element={<Home/>}/>
+      <Route path="/products" element={<Product/>}/>
+      </Routes>
+      </BrowserRouter>
 
-    </div>
+    
   )
 }
 

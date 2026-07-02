@@ -1,8 +1,9 @@
 import React from "react";
 
-const Sort = ({handleSort}) => {
+const Sort = ({ sort, handleSort }) => {
   return (
     <select
+    value={sort}
     onChange={(e)=>handleSort(e.target.value)} 
     className="rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-white outline-none">
       <option value="default" className="text-black">
