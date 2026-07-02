@@ -8,6 +8,16 @@ const products = [
     description:
       "Experience crystal-clear waters and luxurious overwater villas.",
     price: 1299,
+    duration: "7 Days",
+    hotel: "5★ Resort",
+    support: "24/7",
+    includes: [
+      "Luxury overwater villa",
+      "Daily breakfast & dinner",
+      "Airport transfers",
+      "Snorkeling experience",
+      "Sunset cruise",
+    ],
   },
   {
     id: 2,
@@ -18,6 +28,16 @@ const products = [
     description:
       "Snow-covered peaks, cozy cabins, and unforgettable adventures.",
     price: 999,
+    duration: "6 Days",
+    hotel: "4★ Lodge",
+    support: "24/7",
+    includes: [
+      "Mountain lodge",
+      "Breakfast included",
+      "Cable car tickets",
+      "Guided hiking",
+      "Airport pickup",
+    ],
   },
   {
     id: 3,
@@ -28,6 +48,16 @@ const products = [
     description:
       "Discover Japan's futuristic city mixed with timeless traditions.",
     price: 1499,
+    duration: "5 Days",
+    hotel: "5★ Hotel",
+    support: "24/7",
+    includes: [
+      "Luxury hotel",
+      "City sightseeing",
+      "Bullet train experience",
+      "Traditional dinner",
+      "Airport transfers",
+    ],
   },
   {
     id: 4,
@@ -38,6 +68,16 @@ const products = [
     description:
       "Whitewashed buildings overlooking the beautiful Aegean Sea.",
     price: 1199,
+    duration: "6 Days",
+    hotel: "4★ Boutique Hotel",
+    support: "24/7",
+    includes: [
+      "Sea-view hotel",
+      "Breakfast",
+      "Sunset cruise",
+      "Wine tasting",
+      "Airport pickup",
+    ],
   },
   {
     id: 5,
@@ -48,6 +88,16 @@ const products = [
     description:
       "Relax in tropical paradise surrounded by lush greenery.",
     price: 899,
+    duration: "5 Days",
+    hotel: "4★ Resort",
+    support: "24/7",
+    includes: [
+      "Private villa",
+      "Spa session",
+      "Breakfast",
+      "Temple tour",
+      "Airport transfers",
+    ],
   },
   {
     id: 6,
@@ -58,6 +108,16 @@ const products = [
     description:
       "Luxury shopping, iconic skyscrapers, and desert adventures.",
     price: 1799,
+    duration: "5 Days",
+    hotel: "5★ Luxury Hotel",
+    support: "24/7",
+    includes: [
+      "Luxury accommodation",
+      "Desert safari",
+      "Burj Khalifa tickets",
+      "Breakfast buffet",
+      "Airport pickup",
+    ],
   },
   {
     id: 7,
@@ -68,6 +128,16 @@ const products = [
     description:
       "Stroll through charming streets and admire the Eiffel Tower.",
     price: 1399,
+    duration: "5 Days",
+    hotel: "4★ Hotel",
+    support: "24/7",
+    includes: [
+      "Hotel stay",
+      "Seine River cruise",
+      "Eiffel Tower tickets",
+      "Breakfast",
+      "Airport transfers",
+    ],
   },
   {
     id: 8,
@@ -78,6 +148,16 @@ const products = [
     description:
       "Experience the city that never sleeps with world-famous attractions.",
     price: 1299,
+    duration: "6 Days",
+    hotel: "4★ Hotel",
+    support: "24/7",
+    includes: [
+      "Times Square tour",
+      "Statue of Liberty ferry",
+      "Broadway ticket",
+      "Breakfast",
+      "Airport pickup",
+    ],
   },
   {
     id: 9,
@@ -88,6 +168,16 @@ const products = [
     description:
       "Witness breathtaking waterfalls, glaciers, and the Northern Lights.",
     price: 1699,
+    duration: "7 Days",
+    hotel: "4★ Hotel",
+    support: "24/7",
+    includes: [
+      "Northern Lights tour",
+      "Glacier hike",
+      "Blue Lagoon visit",
+      "Breakfast",
+      "Airport transfers",
+    ],
   },
   {
     id: 10,
@@ -98,6 +188,16 @@ const products = [
     description:
       "Discover ancient temples, peaceful gardens, and traditional culture.",
     price: 1149,
+    duration: "5 Days",
+    hotel: "4★ Ryokan",
+    support: "24/7",
+    includes: [
+      "Traditional ryokan stay",
+      "Temple tour",
+      "Tea ceremony",
+      "Breakfast",
+      "Airport transfers",
+    ],
   },
 ];
 

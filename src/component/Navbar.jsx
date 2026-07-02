@@ -29,9 +29,11 @@ const Navbar = () => {
     </ul>
 
     {/* Button */}
+    <Link to="/contact">
     <button className="rounded-full bg-white px-6 py-2.5 text-sm font-semibold text-black transition-all duration-300 hover:scale-105 hover:bg-gray-200 active:scale-95">
       Get Started
     </button>
+    </Link>
   </div>
 </nav>
   )

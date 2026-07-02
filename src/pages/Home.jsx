@@ -41,9 +41,11 @@ const Home = () => {
           </button>
           </Link>
 
+         
           <button className="rounded-full border border-white/15 bg-white/5 px-8 py-3 font-semibold text-white backdrop-blur-lg transition-all duration-300 hover:border-white/30 hover:bg-white/10">
             Learn More
           </button>
+          
         </div>
 
         {/* Stats */}
