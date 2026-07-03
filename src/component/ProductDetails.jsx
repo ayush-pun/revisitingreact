@@ -1,22 +1,25 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import products from "../dataset/Product";
 
 const ProductDetails = ({ savedTrips, setSavedTrips }) => {
-  const { id } = useParams(); 3
+  const { id } = useParams();
+  const navigate = useNavigate();
 
   const product = products.find((item) => item.id === Number(id));
-  
+
   function handleSaveClick() {
     const alreadySaved = savedTrips.some(
       (trip) => trip.id === product.id
     );
 
     if (alreadySaved) {
+      alert("Trip already saved!");
       return;
     }
 
     setSavedTrips((prevTrips) => [...prevTrips, product]);
+    alert("Trip saved successfully!");
   }
 
   if (!product) {
@@ -30,6 +33,14 @@ const ProductDetails = ({ savedTrips, setSavedTrips }) => {
   return (
     <section className="min-h-screen bg-neutral-950 text-white">
       <div className="mx-auto max-w-7xl px-6 py-16">
+        {/* Back Button */}
+        <button
+          onClick={() => navigate(-1)}
+          className="mb-10 inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-5 py-3 font-medium transition hover:bg-white/10"
+        >
+          ← Back
+        </button>
+
         <div className="grid gap-12 lg:grid-cols-2">
           {/* Image */}
           <div className="overflow-hidden rounded-3xl border border-white/10 bg-neutral-900 shadow-2xl">
@@ -112,13 +123,15 @@ const ProductDetails = ({ savedTrips, setSavedTrips }) => {
             </div>
 
             {/* Buttons */}
-            <div className="mt-10 flex gap-4">
+            <div className="mt-10 flex flex-wrap gap-4">
               <button className="rounded-xl bg-white px-8 py-4 font-semibold text-black transition hover:bg-gray-200">
                 Book Now
               </button>
 
-              <button onClick={handleSaveClick}
-                className="rounded-xl border border-white/10 px-8 py-4 transition hover:bg-white/5">
+              <button
+                onClick={handleSaveClick}
+                className="rounded-xl border border-white/10 px-8 py-4 transition hover:bg-white/5"
+              >
                 Save Trip
               </button>
             </div>
