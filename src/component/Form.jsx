@@ -1,4 +1,19 @@
+import { useForm } from "react-hook-form";
+
 const Contact = () => {
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
+
+  function onSubmit(data) {
+    console.log(data);
+
+    reset();
+  }
+
   return (
     <section className="min-h-screen bg-neutral-950 text-white">
       <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
@@ -19,32 +34,87 @@ const Contact = () => {
         </div>
 
         {/* Form */}
-        <form className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-lg sm:p-8">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-lg sm:p-8"
+        >
           <div className="grid gap-6 md:grid-cols-2">
-            {/* Name */}
+            {/* First Name */}
             <div>
               <label className="mb-2 block text-sm text-gray-300">
-                Full Name
+                First Name
               </label>
 
               <input
                 type="text"
-                placeholder="John Doe"
+                placeholder="Enter your first name"
+                {...register("firstName", {
+                  required: "First name is required",
+                  minLength: {
+                    value: 3,
+                    message: "First name must be at least 3 characters",
+                  },
+                })}
                 className="w-full rounded-lg border border-white/10 bg-neutral-900 px-4 py-3 text-white placeholder:text-gray-500 outline-none transition focus:border-blue-500"
               />
+
+              {errors.firstName && (
+                <p className="mt-2 text-sm text-red-500">
+                  {errors.firstName.message}
+                </p>
+              )}
+            </div>
+
+            {/* Last Name */}
+            <div>
+              <label className="mb-2 block text-sm text-gray-300">
+                Last Name
+              </label>
+
+              <input
+                type="text"
+                placeholder="Enter your last name"
+                {...register("lastName", {
+                  required: "Last name is required",
+                  minLength: {
+                    value: 3,
+                    message: "Last name must be at least 3 characters",
+                  },
+                })}
+                className="w-full rounded-lg border border-white/10 bg-neutral-900 px-4 py-3 text-white placeholder:text-gray-500 outline-none transition focus:border-blue-500"
+              />
+
+              {errors.lastName && (
+                <p className="mt-2 text-sm text-red-500">
+                  {errors.lastName.message}
+                </p>
+              )}
             </div>
 
             {/* Email */}
-            <div>
+            <div className="md:col-span-2">
               <label className="mb-2 block text-sm text-gray-300">
                 Email
               </label>
 
               <input
                 type="email"
-                placeholder="john@example.com"
+                placeholder="Enter your email"
+                {...register("email", {
+                  required: "Email is required",
+                  pattern: {
+                    value: /^\S+@\S+\.\S+$/,
+                    message: "Please enter a valid email address",
+                  },
+                })}
                 className="w-full rounded-lg border border-white/10 bg-neutral-900 px-4 py-3 text-white placeholder:text-gray-500 outline-none transition focus:border-blue-500"
               />
+
+              {errors.email && (
+                <p className="mt-2 text-sm text-red-500">
+                  {errors.email.message}
+                </p>
+              )}
             </div>
 
             {/* Destination */}
@@ -53,12 +123,24 @@ const Contact = () => {
                 Destination
               </label>
 
-              <select className="w-full rounded-lg border border-white/10 bg-neutral-900 px-4 py-3 text-white outline-none transition focus:border-blue-500">
-                <option>Beach</option>
-                <option>Mountains</option>
-                <option>City</option>
-                <option>Forest</option>
+              <select
+                {...register("destination", {
+                  required: "Please select a destination",
+                })}
+                className="w-full rounded-lg border border-white/10 bg-neutral-900 px-4 py-3 text-white outline-none transition focus:border-blue-500"
+              >
+                <option value="">Select a destination</option>
+                <option value="Beach">Beach</option>
+                <option value="Mountains">Mountains</option>
+                <option value="City">City</option>
+                <option value="Forest">Forest</option>
               </select>
+
+              {errors.destination && (
+                <p className="mt-2 text-sm text-red-500">
+                  {errors.destination.message}
+                </p>
+              )}
             </div>
 
             {/* Message */}
@@ -68,13 +150,26 @@ const Contact = () => {
               </label>
 
               <textarea
-                rows="6"
+                rows={6}
                 placeholder="Tell us about your ideal vacation..."
+                {...register("message", {
+                  required: "Message is required",
+                  minLength: {
+                    value: 10,
+                    message: "Message must be at least 10 characters",
+                  },
+                })}
                 className="w-full rounded-lg border border-white/10 bg-neutral-900 px-4 py-3 text-white placeholder:text-gray-500 outline-none transition focus:border-blue-500"
-              ></textarea>
+              />
+
+              {errors.message && (
+                <p className="mt-2 text-sm text-red-500">
+                  {errors.message.message}
+                </p>
+              )}
             </div>
 
-            {/* Button */}
+            {/* Submit Button */}
             <div className="md:col-span-2">
               <button
                 type="submit"
