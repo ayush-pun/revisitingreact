@@ -2,10 +2,22 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import products from "../dataset/Product";
 
-const ProductDetails = () => {
-  const { id } = useParams();   3
+const ProductDetails = ({ savedTrips, setSavedTrips }) => {
+  const { id } = useParams(); 3
 
   const product = products.find((item) => item.id === Number(id));
+  
+  function handleSaveClick() {
+    const alreadySaved = savedTrips.some(
+      (trip) => trip.id === product.id
+    );
+
+    if (alreadySaved) {
+      return;
+    }
+
+    setSavedTrips((prevTrips) => [...prevTrips, product]);
+  }
 
   if (!product) {
     return (
@@ -105,7 +117,8 @@ const ProductDetails = () => {
                 Book Now
               </button>
 
-              <button className="rounded-xl border border-white/10 px-8 py-4 transition hover:bg-white/5">
+              <button onClick={handleSaveClick}
+                className="rounded-xl border border-white/10 px-8 py-4 transition hover:bg-white/5">
                 Save Trip
               </button>
             </div>

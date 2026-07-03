@@ -24,6 +24,12 @@ const Navbar = () => {
           Products
         </Link>
       </li>
+      <li>
+      <Link to="/saved" 
+        className="transition hover:text-white">
+          SavedTrips
+        </Link>
+      </li>
     
       
     </ul>
