@@ -1,3 +1,49 @@
+//import React from 'react'
+//import Products1 from './apipractice/pages_api/Products1'
+//
+//const App = () => {
+//  return (
+//    <div>
+//      <Products1/>
+//    </div>
+//  )
+//}
+//export default App
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import React from 'react'
 import Navbar from './component/Navbar'
 import SavedTrips from './pages/SavedTrips'
@@ -29,4 +75,6 @@ const App = () => {
   )
 }
 
+
 export default App
+
